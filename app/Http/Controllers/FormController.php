@@ -114,17 +114,21 @@ class FormController extends Controller
 
         $rules = [
             'fields.*' => 'required',
-
-
         ];
-//
+
         $messages = [
             'fields.*.required' => 'The :attribute field is required.',
-
-
         ];
+        $customAttributes = [];
 
-        $request->validate($rules, $messages);
+        foreach ($form->fields as $field) {
+            $customAttributes["fields.{$field->id}"] = $field->label;
+        }
+
+        $attributes = array_merge($customAttributes, $request->all());
+
+        $this->validate($request, $rules, $messages, $attributes);
+//        $request->validate($rules, $messages);
         foreach ($request->input('fields') as $fieldId => $value) {
             FormSubmission::create([
                 'form_id' => $form->id,

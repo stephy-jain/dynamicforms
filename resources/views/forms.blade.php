@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="card">
+
         <div class="card-header">{{ $form->name }}</div>
         <div class="card-body">
             <form method="POST" action="{{ route('forms.submit', $form->id) }}">
