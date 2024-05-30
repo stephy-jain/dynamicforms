@@ -2,8 +2,8 @@ step 1
 clone the project
 step 2
 composer install
-step 3
-generate application key
+
+
 step 4
 set Up env
 step 5
