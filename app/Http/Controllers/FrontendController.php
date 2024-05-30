@@ -11,8 +11,8 @@ class FrontendController extends Controller
     public function show($slug)
     {
         $form = Form::with('fields')->where('slug', $slug)->first();
-        //dd($form);
-        return view('forms', compact('form'));
+        $forms = Form::all();
+        return view('forms', compact('form','forms'));
     }
 
     public function index()

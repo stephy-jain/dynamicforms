@@ -21,9 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $forms = Form::all();
-
+//        $forms = Form::all();
         // Share forms data with all views
-        View::share('forms', $forms);
+//        View::share('forms', $forms);
     }
 }
